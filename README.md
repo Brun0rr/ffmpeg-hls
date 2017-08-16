@@ -18,10 +18,15 @@ URL: http://localhost/camera/stream
 + url: String ---> String RTSP from camera stream
 
 # Get Stream
-URL: http://localhost/id/stream.m3u8
+URL: http://localhost/id/stream.m3u8 (Substituir o "id" pelo mesmo id utilizado no comando anterior.)
+
+#Scripts Cron
+O containers está configurado para rodar 2 scripts.
+- 1º - Se existir streams iniciados, porém sem acesso a mais de 2 minutos. O script ira encerrar o stream e limpar os arquivos existentes em /var/www/html/id (Onde ID é o ID da camera).
+- 2º - Limpa dos arquivos de stream que não estão mais sendo executadas e por algum motivo, não foi possível remover os arquivos.
 
 # Routes
-- POST - http://localhost/camera/stream
-- GET - http://localhost/killall/streams
-- GET - http://localhost/statusAPI
-- GET - http://localhost/id/stream.m3u8
+- POST - http://localhost/camera/stream = Inicia o Stream de uma câmera.
+- GET - http://localhost/killall/streams = Finaliza todos os streams e remove todos os arquivos.
+- GET - http://localhost/statusAPI = Retorna "OK" para caso a API esteja operacional
+- GET - http://localhost/id/stream.m3u8 = Utilizado para visualizar o stream em navegadores, players, etc.
