@@ -5,7 +5,7 @@ Stream RTSP over HTTP (FFMPEG + HLS)
 docker build -t ffmpeg:1.0 .
 
 # Run Container
-docker run -ti -p 80:80 -p 4000:4000 --name ffmpeg-hls ffmpeg:1.0
+docker run -d -p 80:80 -p 4000:4000 --name ffmpeg-hls ffmpeg:1.0
 
 # Usage
 URL: http://localhost/camera/stream
