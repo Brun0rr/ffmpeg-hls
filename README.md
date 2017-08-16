@@ -16,3 +16,9 @@ URL: http://localhost/camera/stream
 
 # Get Stream
 URL: http://localhost/id/stream.m3u8
+
+# Routes
+POST - http://localhost/camera/stream
+GET - http://localhost/killall/streams
+GET - http://localhost/statusAPI
+GET - http://localhost/id/stream.m3u8
