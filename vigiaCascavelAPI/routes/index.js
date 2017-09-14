@@ -14,7 +14,7 @@ router.post('/camera/stream', function(req, res, next) {
 
   if (fs.existsSync("/var/www/html/" + id + "/stream.m3u8")) {
     console.log("Stream já existe");
-    res.status(200).json({ exitStatus: "0", error: "" });
+    res.status(200).json({ exitStatus: "1", error: "" });
     res.end();
   } else {
     child('/opt/vigiaCascavelAPI/scripts/iniciaStream.sh', [ id, url ]);
